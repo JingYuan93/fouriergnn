@@ -127,7 +127,7 @@ def validate(model, vali_loader):
 
 def test():
     result_test_file = 'output/'+args.data+'/train'
-    model = load_model(result_test_file, 48)
+    model = load_model(result_test_file, epoch)
     model.eval()
     preds = []
     trues = []
@@ -173,6 +173,6 @@ if __name__ == '__main__':
 
         print('| end of epoch {:3d} | time: {:5.2f}s | train_total_loss {:5.4f} | val_loss {:5.4f}'.format(
                 epoch, (time.time() - epoch_start_time), loss_total / cnt, val_loss))
-        save_model(model, result_train_file, epoch)
-
+        save_model(model, result_train_file, epoch)   
+    test()
 
